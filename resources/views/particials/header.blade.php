@@ -1,3 +1,6 @@
 <header>
-    <p>Sono header</p>
+    <div class="logo">
+        <img src="" alt="">
+    </div>
+
 </header>
