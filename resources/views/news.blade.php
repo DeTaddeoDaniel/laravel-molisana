@@ -3,5 +3,5 @@
 @section('title', 'Molisana news')
 
 @section('content')
-    <p>Sono il main</p>
+    <p>Sono il news</p>
 @endsection
