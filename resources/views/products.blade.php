@@ -3,5 +3,5 @@
 @section('title', 'Molisana prodotti')
 
 @section('content')
-    <p>Sono il main</p>
+    <p>Sono i prodotti</p>
 @endsection
