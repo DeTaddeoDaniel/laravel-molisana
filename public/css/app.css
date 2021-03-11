@@ -81,3 +81,7 @@ nav li:hover {
   transition: all 2s linear;
 }
 
+.bg-azzurro {
+  background-color: #daedf3;
+}
+
