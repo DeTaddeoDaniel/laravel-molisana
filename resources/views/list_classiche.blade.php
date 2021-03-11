@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Molisana prodotti')
+@section('title', 'Molisana classiche')
 
 @section('content')
     <section>
@@ -10,15 +10,14 @@
             <div class="cards">
 
                 @php
-                    // dd($tipi_pasta);
+                    // dd($paste);
                 @endphp       
 
 
-                @foreach ($tipi_pasta as $tipo_pasta)
+                @foreach ($paste as $pasta)
                     <article class="card">
-                        <a href="{{route($tipo_pasta['link'])}}">
-                            <img src="{{asset($tipo_pasta['src'])}}" alt="$tipo_pasta['link']">
-                            {{-- {{-- <a href="{{route('pagina-homepage')}}">Home</ --}}
+                        <a href="#">
+                            <img src="{{asset($pasta['src'])}}" alt="$tipo_pasta['link']">
                         </a>
                     </article>
                 @endforeach        
@@ -27,3 +26,5 @@
         </div>
     </section>
 @endsection
+
+{{-- <a href="{{route('pagina-homepage')}}">Home</ --}}

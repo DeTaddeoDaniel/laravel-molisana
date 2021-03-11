@@ -32,9 +32,9 @@ Route::get('/i-prodotti', function () {
 
 //----------------------------------------------------
 
-//----------------------------------------------------
-// Route::get('/pasta/{id}', function ($id) {
-//     $pasta = config('pasta');
-    // $data = ['pasta' => $pasta[$id]];
-//     return view('dettagli', $data);
-// })->name('pagina-dettagli');
+Route::get('/le-classiche', function () {
+    $pasta = config('pasta');
+    $data = ['paste' => $pasta];
+    return view('list_classiche', $data);
+})->name('pagina-classiche');
+
