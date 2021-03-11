@@ -1,1 +1,89 @@
-//
+.sezioneImmagine{
+    height: 100vh;
+    background-color: peru;
+    background-image: url('../../public/img/molisana-home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    max-width: 100%;
+}
+
+.logo{
+    max-width: 250px;
+    margin: auto;
+}
+
+.logo img{
+    width: 100%;
+}
+
+.container{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav{
+
+    & ul{
+        list-style-type: none;
+        text-align: center;
+    }
+
+    & li{
+        padding: 10px;
+        display: inline-block;
+    }
+
+    & a {
+        color: rgb(68, 68, 68);
+        font-size: 24px;
+        text-decoration: none;
+    }
+
+    & li.active{
+        background-color: rgb(179, 229, 252)
+    }
+
+    & li:hover{
+        background-color: rgb(179, 229, 252)
+    }
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.card {
+
+    padding-left: 2px;
+    padding-right: 1px;
+    width: calc(100% / 3 - 12px);
+    transform: scale(1);
+    transition: all 2s linear;
+
+    & img{
+        width: 100%;
+    }
+
+    &:hover{
+        overflow: hidden;
+    }
+
+    &:hover img{
+        transform: scale(1.11);
+        transition: all 2s linear;
+    }
+}

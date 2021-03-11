@@ -13,14 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//----------------------------------------------------
 Route::get('/', function () {
     return view('home');
 })->name('pagina-homepage');
 
+//----------------------------------------------------
 Route::get('/news', function () {
     return view('news');
 })->name('pagina-notizie');
 
-Route::get('/products', function () {
-    return view('products');
+//----------------------------------------------------
+Route::get('/i-prodotti', function () {
+    $tipiPasta = config('tipi-pasta');
+    $data = ['tipi_pasta' => $tipiPasta];
+    return view('products', $data);
 })->name('pagina-prodotti');
+
+//----------------------------------------------------
+
+//----------------------------------------------------
+// Route::get('/pasta/{id}', function ($id) {
+//     $pasta = config('pasta');
+    // $data = ['pasta' => $pasta[$id]];
+//     return view('dettagli', $data);
+// })->name('pagina-dettagli');
