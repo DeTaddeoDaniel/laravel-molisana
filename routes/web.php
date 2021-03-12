@@ -36,19 +36,22 @@ Route::get('/i-prodotti', function () {
 $pages = config('pasta');
 
 foreach ($pages as $page) {
-    Route::get("/pasta/{$page['pagina']}", function ($pasta) { 
-        return view('dettagli', $pasta);
-    }) ->name($page['pagina']); 
+
+    Route::get("/pasta/{$page['pagina']}", function() use ($page) {
+        $page = ['pasta' => $page];
+        return view('dettagli', $page);
+    }) ->name($page['pagina']);;
 }
 
 //----------------------------------------------------
 $pages = config('tipi-pasta');
 
 foreach ($pages as $page) {
-    Route::get("/tipologia/{$page['link']}", function ($pasta) { 
-        // dd($page['link']);
+    Route::get("/tipologia/{$page['link']}", function () { 
+
         $pasta = config('pasta');
         $data = ['paste' => $pasta];
-        return view('list_classiche', $data);
+        return view('products-list', $data);
+
     }) ->name('pagina-'.$page['link']); 
 }

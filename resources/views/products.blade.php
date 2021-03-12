@@ -16,8 +16,8 @@
 
                 @foreach ($tipi_pasta as $tipo_pasta)
                     <article class="card">
-                        <a href="{{route($tipo_pasta['link'])}}">
-                            <img src="{{asset($tipo_pasta['src'])}}" alt="$tipo_pasta['link']">
+                        <a href="{{route('pagina-'.$tipo_pasta['link'])}}">
+                            <img src="{{asset($tipo_pasta['src'])}}" alt="">
                             {{-- {{-- <a href="{{route('pagina-homepage')}}">Home</ --}}
                         </a>
                     </article>

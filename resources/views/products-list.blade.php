@@ -1,23 +1,22 @@
 @extends('layout.app')
 
-@section('title', 'Molisana prodotti item')
+@section('title', '{$paste["titolo"]}')
 
 @section('content')
     <section>
         <div class="container">
-            @php
-                $arrayProdotti = [
-                    '1','2','3'
-                ]
-            @endphp
+            
 
-            <div class="types">
+            <div class="cards">
 
-                @foreach ($arrayProdotti as $prodotto)
-                    <div class="card">
-                        <p>This is number {{ $prodotto->id }}</p>
-                    </div>
-                @endforeach
+                @foreach ($paste as $pasta)
+                    <article class="card">
+                        <a href="{{route($pasta['pagina'])}}">
+                            <img src="{{asset($pasta['src'])}}" alt="">
+                            {{-- {{-- <a href="{{route('pagina-homepage')}}">Home</ --}}
+                        </a>
+                    </article>
+                @endforeach        
                     
             </div>
         </div>
