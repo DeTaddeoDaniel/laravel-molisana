@@ -26,15 +26,29 @@ Route::get('/news', function () {
 //----------------------------------------------------
 Route::get('/i-prodotti', function () {
     $tipiPasta = config('tipi-pasta');
-    $data = ['tipi_pasta' => $tipiPasta];
+    $pasta = config('pasta');
+    $data = ['tipi_pasta' => $tipiPasta, 'pasta' => $pasta];
     return view('products', $data);
 })->name('pagina-prodotti');
 
 //----------------------------------------------------
 
-Route::get('/le-classiche', function () {
-    $pasta = config('pasta');
-    $data = ['paste' => $pasta];
-    return view('list_classiche', $data);
-})->name('pagina-classiche');
+$pages = config('pasta');
 
+foreach ($pages as $page) {
+    Route::get("/pasta/{$page['pagina']}", function ($pasta) { 
+        return view('dettagli', $pasta);
+    }) ->name($page['pagina']); 
+}
+
+//----------------------------------------------------
+$pages = config('tipi-pasta');
+
+foreach ($pages as $page) {
+    Route::get("/tipologia/{$page['link']}", function ($pasta) { 
+        // dd($page['link']);
+        $pasta = config('pasta');
+        $data = ['paste' => $pasta];
+        return view('list_classiche', $data);
+    }) ->name('pagina-'.$page['link']); 
+}
