@@ -1,5 +1,9 @@
 @extends('layout.app')
 
+@section('css')
+    <link rel="stylesheet" href="/css/app.css">
+@endsection
+
 @section('title', '{$paste["titolo"]}')
 
 @section('content')
