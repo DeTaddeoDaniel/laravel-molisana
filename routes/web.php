@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+    $tipiPasta = config('tipi-pasta');
+    $pasta = config('pasta');
 //----------------------------------------------------
 Route::get('/', function () {
     return view('home');
@@ -24,34 +26,28 @@ Route::get('/news', function () {
 })->name('pagina-notizie');
 
 //----------------------------------------------------
-Route::get('/i-prodotti', function () {
-    $tipiPasta = config('tipi-pasta');
-    $pasta = config('pasta');
+Route::get('/i-prodotti', function () use ($tipiPasta, $pasta){
     $data = ['tipi_pasta' => $tipiPasta, 'pasta' => $pasta];
     return view('products', $data);
 })->name('pagina-prodotti');
 
 //----------------------------------------------------
 
-$pages = config('pasta');
+foreach ($pasta as $infoPasta) {
 
-foreach ($pages as $page) {
-
-    Route::get("/pasta/{$page['pagina']}", function() use ($page) {
-        $page = ['pasta' => $page];
-        return view('dettagli', $page);
-    }) ->name($page['pagina']);;
+    Route::get("/pasta/{$infoPasta['pagina']}", function() use ($infoPasta) {
+        $data = ['pasta' => $infoPasta];
+        return view('dettagli', $data);
+    }) ->name($infoPasta['pagina']);;
 }
 
 //----------------------------------------------------
-$pages = config('tipi-pasta');
 
-foreach ($pages as $page) {
-    Route::get("/tipologia/{$page['link']}", function () { 
+foreach ($tipiPasta as $tipoPasta) {
+    Route::get("/tipologia/{$tipoPasta['link']}", function () use ($pasta){ 
 
-        $pasta = config('pasta');
         $data = ['paste' => $pasta];
         return view('products-list', $data);
 
-    }) ->name('pagina-'.$page['link']); 
+    }) ->name('pagina-'.$tipoPasta['link']); 
 }
